@@ -44,18 +44,23 @@ function chessBoardCellColor(cell1, cell2) {
     }
 }
 
-//console.log(chessBoardCellColor("A1","C3"));
-//console.log(chessBoardCellColor("A1","H3"));
+//console.log(depositProfit(100,20,170));
 
-function depositProfit(deposit, rate, threshold) {
-    var currAmount = deposit;
-    var totalYears = 0;
-    while(currAmount<threshold){
-        console.log(currAmount);
-        currAmount += currAmount * (rate/100);
-        totalYears++;
+function absoluteValuesSumMinimization(a) {
+    var minNumber = 0;
+    var minSum = 2147483648;
+    for(var i=0; i< a.length; i++){
+        sum=0;
+        for(var j=0; j<a.length; j++){
+            sum += Math.abs(a[j]-a[i]);
+        }
+        if(sum<minSum){
+            minSum = sum;
+            minNumber = a[i];
+        }
     }
-    return totalYears;
+    return minNumber;
 }
 
-console.log(depositProfit(100,20,170));
+a=[2,4,7];
+console.log(absoluteValuesSumMinimization(a));
